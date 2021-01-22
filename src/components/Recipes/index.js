@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet, Button, FlatList} from 'react-native';
+import { Text, View, StyleSheet, FlatList} from 'react-native';
 
 // Import components
-import Recipe from './recipe'
+import Recipe from './recipe';
+import SearchBar from '../../containers/searchBar';
+import { Button } from 'react-native-elements';
 
 const Recipes = ({navigation, fetchRecipes, recipeList}) => {
-    console.log('recipesLIST !!',recipeList)
 
     useEffect(() => {
         // fetchRecipes()
@@ -17,15 +18,28 @@ const Recipes = ({navigation, fetchRecipes, recipeList}) => {
         readyInMinutes={item.readyInMinutes}
         servings={item.servings}
         image={item.image}
+        navigation={navigation}
         />
       );
 
       const _renderSeparator = () => (
         <View style={{ height: 4, backgroundColor: '#94fbab', marginLeft: 80, marginBottom: 20}} />
-      )
+      );
+
+      const handleOnPress = () => {
+        navigation.navigate('Recette trouvées')
+        };
 
     return(
         <View style={styles.container}>
+            <SearchBar />
+            <Button
+                title="Lancer la recherche"
+                type="clear"
+                onPress={handleOnPress}
+                // containerStyle={{height:30}}
+                buttonStyle={{height:20}}
+            />
             {recipeList ? 
             <FlatList
             data={recipeList}
@@ -47,7 +61,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         paddingLeft: 10,
         paddingRight:10
-    }
+    },
 })
 
 export default Recipes;

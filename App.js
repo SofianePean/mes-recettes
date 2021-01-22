@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //Components
 import Recipes from './src/containers/recipes';
 import RecipeDetails from './src/components/RecipeDetails';
+import RecipesFound from './src/components/RecipesFound';
 
 const Stack = createStackNavigator();
 
@@ -18,7 +19,8 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="Liste des recettes" component={Recipes} />
-            <Stack.Screen name="RecipeDetails" component={RecipeDetails} />
+            <Stack.Screen name="Détails de la recette" component={RecipeDetails} />
+            <Stack.Screen name="Recette trouvées" component={RecipesFound} />
           </Stack.Navigator>
         </NavigationContainer>
     </Provider>

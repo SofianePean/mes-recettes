@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 
 
-const RecipeDetails = () => {
+const RecipeDetails = ({route}) => {
     return(
         <View>
-            <Text>Coucou depuis recipeDetails</Text>
+            <Text>Recette {route.params.title}</Text>
         </View>
     )
 }

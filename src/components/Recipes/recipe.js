@@ -1,10 +1,16 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-const Recipe = ({title, readyInMinutes, servings, image}) => {
+const Recipe = ({title, readyInMinutes, servings, image, navigation}) => {
+
+    const onPress = () => {
+        navigation.navigate("Détails de la recette", {
+            title: title
+        })
+    };
     return(
         <View>
-            <TouchableOpacity number={0.9} style={styles.container}>
+            <TouchableOpacity number={0.9} style={styles.container} onPress={onPress}>
                 <View>
                     <Image
                         style={styles.image}
