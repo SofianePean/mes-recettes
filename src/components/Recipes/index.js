@@ -9,7 +9,7 @@ import { Button } from 'react-native-elements';
 const Recipes = ({navigation, fetchRecipes, recipeList}) => {
 
     useEffect(() => {
-        // fetchRecipes()
+        fetchRecipes()
     }, []);
 
     const renderItem = ({ item }) => (
@@ -19,6 +19,7 @@ const Recipes = ({navigation, fetchRecipes, recipeList}) => {
         servings={item.servings}
         image={item.image}
         navigation={navigation}
+        id={item.id}
         />
       );
 

@@ -1,2 +1,2 @@
 
-export const baseURL = 'https://api.spoonacular.com/recipes/search';
+export const baseURL = 'https://api.spoonacular.com/recipes';

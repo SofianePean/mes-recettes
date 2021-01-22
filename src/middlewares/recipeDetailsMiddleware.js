@@ -1,21 +1,20 @@
 import axios from 'axios';
-import { FETCH_RECIPES, saveRecipes} from '../actions/recipes';
+import { FETCH_RECIPE_DETAILS, saveRecipeDetails} from '../actions/recipeDetails';
 
 import { baseURL } from '../api/recipes';
 
-const RecipesMiddleware = (store) => (next) => (action) => {
+const recipeDetailsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case FETCH_RECIPES:
+    case FETCH_RECIPE_DETAILS:
         const apiKey = "c5732edde621422697924d22275dd5ee";
-        const nbPerPage = 30
-      axios.get(`${baseURL}/search`, {
+      axios.get(`${baseURL}/${action.id}/information`, {
           params: {
             apiKey,
-            number: nbPerPage
           }
       })
         .then((result) => {
-          store.dispatch(saveRecipes(result.data.results));
+            console.log(result)
+          store.dispatch(saveRecipeDetails(result.data));
         })
         .catch((error) => {
           console.log('ERROR',error)
@@ -27,4 +26,4 @@ const RecipesMiddleware = (store) => (next) => (action) => {
       break;
   }
   };
-  export default RecipesMiddleware;
+  export default recipeDetailsMiddleware;

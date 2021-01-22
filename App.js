@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //Components
 import Recipes from './src/containers/recipes';
-import RecipeDetails from './src/components/RecipeDetails';
+import RecipeDetails from './src/containers/recipeDetails';
 import RecipesFound from './src/components/RecipesFound';
 
 const Stack = createStackNavigator();
