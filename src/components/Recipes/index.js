@@ -7,6 +7,7 @@ import SearchBar from '../../containers/searchBar';
 import { Button } from 'react-native-elements';
 
 const Recipes = ({navigation, fetchRecipes, recipeList}) => {
+    console.log('recipeList', recipeList)
 
     useEffect(() => {
         fetchRecipes()

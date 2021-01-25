@@ -18,6 +18,10 @@ const Instruction = ({ title, ingredients, steps }) => {
     const renderItemSteps = ({item}) => (
         <StepsRecipe step={item.step} number={item.number}/>
     );
+
+    const listEmptyComponent = () => (
+        <StepsRecipe step={"Pas d'instructions pour cette recette"} number={1}/>
+    )
     
     return(
         <View style={styles.container}>
@@ -36,6 +40,7 @@ const Instruction = ({ title, ingredients, steps }) => {
                 <Text style={styles.steps}>Etapes :</Text>
                 <FlatList
                     data={steps}
+                    ListEmptyComponent={listEmptyComponent}
                     renderItem={renderItemSteps}
                     keyExtractor={item => item.id}
                     style={styles.ingredientList}

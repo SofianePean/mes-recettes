@@ -22,7 +22,7 @@ const RecipeDetails = ({route, fetchRecipeDetails, recipeDetails}) => {
                         <Instruction
                         title={recipeDetails.title}
                         ingredients={recipeDetails.extendedIngredients}
-                        steps={recipeDetails.analyzedInstructions[0].steps}
+                        steps={recipeDetails.analyzedInstructions[0] ? recipeDetails.analyzedInstructions[0].steps : recipeDetails.analyzedInstructions[0]}
                         />
                     }
                 </View>

@@ -13,6 +13,7 @@ const StepsRecipe = ({ step, number }) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        alignItems: 'center'
     },
     number: {
         marginRight: 7,
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     step : {
-        flex: 1
+        flex: 1,
     }
 });
 
