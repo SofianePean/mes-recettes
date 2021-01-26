@@ -58,7 +58,7 @@ const Recipes = ({navigation, fetchRecipes, recipeList}) => {
 
 const styles = StyleSheet.create({
     container: {
-        // paddingTop: Platform.OS === 'android' ? 25 : 0,
+        paddingTop: Platform.OS === 'android' ? 25 : 0,
         flex:1,
         justifyContent: 'center',
         alignContent: 'center',
