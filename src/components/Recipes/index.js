@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet, FlatList} from 'react-native';
+import { Text, View, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 
 // Import components
 import Recipe from './recipe';
@@ -41,7 +41,7 @@ const Recipes = ({navigation, fetchRecipes, recipeList}) => {
                 onPress={handleOnPress}
                 // containerStyle={{height:30}}
                 buttonStyle={{height:20}}
-            />
+                />
             {recipeList ? 
             <FlatList
             data={recipeList}
@@ -58,6 +58,7 @@ const Recipes = ({navigation, fetchRecipes, recipeList}) => {
 
 const styles = StyleSheet.create({
     container: {
+        // paddingTop: Platform.OS === 'android' ? 25 : 0,
         flex:1,
         justifyContent: 'center',
         alignContent: 'center',

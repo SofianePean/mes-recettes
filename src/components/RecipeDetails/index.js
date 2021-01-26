@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
-import {View, Text, StyleSheet, Image, ScrollView, ImageBackground} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, ImageBackground, LogBox} from 'react-native';
 
 // Import components
 import Instruction from './instruction';
 
 
 const RecipeDetails = ({route, fetchRecipeDetails, recipeDetails}) => {
-    console.log('RECIPEDETAIL', recipeDetails)
 
     useEffect(() =>  {
         fetchRecipeDetails(route.params.id)
     }, [])
 
+    useEffect(() => {
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+    }, [])
+
     return(
-        <ScrollView >
+        <ScrollView>
             <View style={styles.container}>
                 <ImageBackground style={styles.image} source={{uri : 'https://spoonacular.com/recipeImages/' + route.params.image }}>
                 </ImageBackground>
